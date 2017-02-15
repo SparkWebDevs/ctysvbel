@@ -38,7 +38,7 @@ $(document).ready(function() {
 		//var name = document.getElementById("username").value;
 		var pass = document.getElementById("password").value;
         var user = document.getElementById("user").value;
-
+        
 		$.ajax({
 			
 			type: "POST",
