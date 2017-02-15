@@ -2,7 +2,7 @@ $(document).ready(function() {
     
     if(window.sessionStorage.getItem("cetysPass") !== null) {
 			console.log("session");
-			window.open ('orders','_self',false);
+			window.open ('adminIndex','_self',false);
 		}
 		
 		if(window.sessionStorage.getItem("NoCredentials") !== null) {
@@ -29,35 +29,35 @@ $(document).ready(function() {
 				
 				sessionStorage.setItem('cetysPass', data);
 				
-				return window.open ('orders','_self',false);
+				return window.open ('adminIndex','_self',false);
 					
 		}
 		
 		function setVerification(){
-		
 		//var name = document.getElementById("username").value;
 		var pass = document.getElementById("password").value;
         var user = document.getElementById("user").value;
+        
+        if(pass == "" || pass == null || user == "" || user == null){
+            sweetAlert("Oops...", "El nombre de usuario y/o contraseña son incorrectos", "error");
+            return;
+        }
 
 		$.ajax({
-			
-			type: "POST",
-			url: 'ajaxInterface.php',
-			data: {func: "AJAXloginUsers",arg1: user, arg2: pass},
-			success: function(data) {
-			 if(data === "no"){
-				
-				document.getElementById("password").value = "";
-				console.log("credentials are incorrect");
-				alert('Los datos de acceso son incorrectos');
-			 } else {
-				console.log(data);
-				setData(data);
-			 }
-		
-		}
-			
-			});
+                type: "POST",
+                url: 'ajaxInterface.php',
+                data: {func: "AJAXloginUsers",arg1: user, arg2: pass},
+                success: function(data) {
+                     if(data === "no"){
+                    	document.getElementById("password").value = "";
+                    	console.log("credentials are incorrect");
+                    	sweetAlert("Oops...", "El nombre de usuario y/o contraseña son incorrectos", "error");
+                     } else {
+                    	console.log(data);
+                    	setData(data);
+                        }
+                }
+        });
 		
 		}
 		

@@ -33,5 +33,42 @@
                     echo "no";  
                 }
         }
+	
+	function loadCurrentDates(){
+		global $conn;
+            try{
+                $getCurrentDatesQuery = "SELECT StartDate,EndDate FROM Configuration;";
+                $dataset = sqlsrv_query($conn, $getCurrentDatesQuery);
+                
+                if(sqlsrv_has_rows($dataset) === FALSE){
+                    echo "no";
+                }else{
+                    $results = sqlsrv_fetch_array($dataset, SQLSRV_FETCH_ASSOC);
+                    echo json_encode($results);
+                }
+                
+                }catch (Exception $err) {
+                    echo "no";  
+                }
+	}
+	
+	function setSellDates($startDate , $endDate){
+	    global $conn;
+            try{
+                $adminLoginQuery = "SELECT IdAdministrator FROM Administrator WHERE UserName = ? AND Password = ?;";
+                $params = array($user,$pass);
+                $dataset = sqlsrv_query($conn, $adminLoginQuery, $params);
+                
+                if(sqlsrv_has_rows($dataset) === FALSE){
+                    echo "no";
+                }else{
+                    $results = sqlsrv_fetch_array($dataset, SQLSRV_FETCH_ASSOC);
+                    echo $results['IdAdministrator'];
+                }
+                
+                }catch (Exception $err) {
+                    echo "no";  
+                }	
+	}
     
 ?>

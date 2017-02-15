@@ -18,9 +18,18 @@
     $result = $function($data, $data1, $data2,$data3,$data4);
     echo $result;
 
-    //ORDERS PAGE CUSTOM
+    
+    
     function AJAXloginUsers($user, $pass){
         logAdminUser($user, $pass);
+    }
+    
+    function AJAXloadCurrentDates(){
+        loadCurrentDates();
+    }
+    
+    function AJAXsetSellDates($startDate , $endDate){
+        setSellDates($startDate , $endDate);
     }
 
 ?>

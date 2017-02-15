@@ -8,10 +8,10 @@ $nav = Array();
 $option = Array();
 
  $nav[0]['text']  = 'Reportes';
- $nav[0]['file']  = '';
+ $nav[0]['file']  = 'index.php';
 
  $nav[1]['text']  = 'Configuración';
- $nav[1]['file']  = 'admin/login.php';
+ $nav[1]['file']  = 'configuraciones.php';
 
 
 //Set main navigation sub options
