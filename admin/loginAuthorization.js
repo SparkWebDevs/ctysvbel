@@ -38,32 +38,21 @@ $(document).ready(function() {
 		//var name = document.getElementById("username").value;
 		var pass = document.getElementById("password").value;
         var user = document.getElementById("user").value;
-
+        
 		$.ajax({
 			
 			type: "POST",
 			url: 'ajaxInterface.php',
-			data: {func: "AJAXloginUsers",user: user, pass: pass},
+			data: {func: "AJAXloginUsers",arg1: user, arg2: pass},
 			success: function(data) {
-				
-				console.log(data);
-				
 			 if(data === "no"){
 				
 				document.getElementById("password").value = "";
 				console.log("credentials are incorrect");
-				//$("#wrong-password").animate({"opacity":"1"}, function(){
-				//	
-				//	var timeout = setTimeout(function(){
-				//	$("#wrong-password").animate({"opacity":"0"});
-				//	}, 1000, clearTimeout(timeout));
-				//	
-				//	});
-				
+				alert('Los datos de acceso son incorrectos');
 			 } else {
 				console.log(data);
-				//setData(data);
-				
+				setData(data);
 			 }
 		
 		}
