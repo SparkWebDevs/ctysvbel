@@ -23,6 +23,7 @@
 
 html,
 body {
+    display: flex;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -150,7 +151,7 @@ body {
 
 
 /*===========================================
-            LOGIN SCREEN ADMINS
+            LOGIN SCREEN & ADMINS
 =============================================*/
 
     .admin-login-container{
@@ -204,5 +205,35 @@ body {
         background: #393939;
         color: #fff;
     }
+    
+    .config-container{
+        background: #E9E9E9;
+        width: 95%;
+        margin: auto;
+    }
+    
+    .fecha-config{
+        width: 30%;
+        padding: 8px;
+        border-left: 2px solid #F2f2f2;
+        border-right: 2px solid #F2f2f2;
+    }
+    
+    .fecha-config input{
+        width: 100%;
+        height: 30px;
+    }
+    
+    .fecha-config h2{
+        text-align: center;
+    }
+    
+    .fecha-config button{
+        width: 50%;
+        margin: 10px auto;
+        display: block;
+    }
+    
+
 
 
