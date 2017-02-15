@@ -30,7 +30,7 @@
                 }
                 
                 }catch (Exception $err) {
-                    echo "error";  
+                    echo "no";  
                 }
         }
     
