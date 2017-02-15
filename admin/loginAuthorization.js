@@ -43,7 +43,7 @@ $(document).ready(function() {
 			
 			type: "POST",
 			url: 'ajaxInterface.php',
-			data: {func: "AJAXloginUsers",arg1: user, arg2: pass},
+			data: {func: "AJAXloginUsers",user: user, pass: pass},
 			success: function(data) {
 			 if(data === "no"){
 				
