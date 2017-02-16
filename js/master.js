@@ -9,6 +9,9 @@ function checkSelling(today){
                      } else {
                     	//Set the dates on the ids
                             var currentDates = JSON.parse(data);
+                            console.log(today);
+                            console.log(currentDates.StartDate.date);
+                            console.log(currentDates.EndDate.date);
                             if(today >= currentDates.StartDate.date && today <= currentDates.EndDate.date){
                                 sweetAlert("Alerta", "La venta se encuentra activa", "success");
                             }else{
