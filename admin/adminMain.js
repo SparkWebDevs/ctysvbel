@@ -23,9 +23,10 @@ function cargarFechasActuales(){
                     	sweetAlert("Oops...", "Imposible recuperar fechas", "error");
                      } else {
                     	//Set the dates on the ids
-                            console.log(data);
-                            $("#inicioVenta").val(data.StartDate.date);
-                            $("#finVenta").val(data.EndDate.date);
+                            var currentDates = JSON.parse(data);
+                            console.log(currentDates);
+                            $("#inicioVenta").val(currentDates[0].StartDate.date);
+                            $("#finVenta").val(currentDates[0].EndDate.date);
                         }
                 }
             });
