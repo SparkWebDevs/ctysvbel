@@ -1,4 +1,4 @@
-var date;
+
 function habilitarModificacionVenta(){
     //Activate the date fields
     $("#inicioVenta").removeAttr("disabled");
@@ -6,6 +6,14 @@ function habilitarModificacionVenta(){
     $("#btnModificarFechas").toggleClass("btn-warning btn-primary");
     $("#btnModificarFechas").attr("onclick", "validarFechas();");
     $("#btnModificarFechas").html("Aceptar");
+}
+
+function deshabilitarModificacionVenta(){
+    $("#inicioVenta").attr("disabled",true);
+    $("#finVenta").attr("disabled",true);
+    $("#btnModificarFechas").toggleClass("btn-primary btn-warning");
+    $("#btnModificarFechas").attr("onclick", "habilitarModificacionVenta();");
+    $("#btnModificarFechas").html("Modificar");
 }
 
 
@@ -25,7 +33,6 @@ function cargarFechasActuales(){
                     	//Set the dates on the ids
                             var currentDates = JSON.parse(data);
                             date = currentDates;
-                            console.log(currentDates);
                             $("#inicioVenta").val(currentDates.StartDate.date);
                             $("#finVenta").val(currentDates.EndDate.date);
                         }
@@ -88,14 +95,14 @@ function validarFechas(){
                 data: {func: "AJAXsetSellDates",arg1: startDate, arg2: endDate},
                 success: function(data) {
                      if(data === "no"){
-                    	alert('Los datos de acceso son incorrectos');
+                    	sweetAlert("Oops...", "Imposible actualizar las fechas, intentelo denuevo.", "error");
                      } else {
-                    	console.log(data);
-                    	setData(data);
+                    	sweetAlert("Alerta", "Las fechas de venta han sido actualizadas", "success");
+                        deshabilitarModificacionVenta();
                         }
                 }
             });
-                    sweetAlert("Alerta", "Las fechas de venta han sido establecidas", "success");
+                    
             });
     }
     

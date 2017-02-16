@@ -55,17 +55,10 @@
 	function setSellDates($startDate , $endDate){
 	    global $conn;
             try{
-                $adminLoginQuery = "SELECT IdAdministrator FROM Administrator WHERE UserName = ? AND Password = ?;";
-                $params = array($user,$pass);
-                $dataset = sqlsrv_query($conn, $adminLoginQuery, $params);
-                
-                if(sqlsrv_has_rows($dataset) === FALSE){
-                    echo "no";
-                }else{
-                    $results = sqlsrv_fetch_array($dataset, SQLSRV_FETCH_ASSOC);
-                    echo $results['IdAdministrator'];
-                }
-                
+                $updateSellDatesQuery = "UPDATE Configuration SET StartDate = ?, EndDate = CURRENT_TIMESTAMP WHERE idConfiguration = ?;";
+                $params = array($startDate,$endDate,1);
+                $dataset = sqlsrv_query($conn, $updateSellDatesQuery, $params);
+		echo "yes";
                 }catch (Exception $err) {
                     echo "no";  
                 }	
