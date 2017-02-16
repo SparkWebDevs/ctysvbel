@@ -55,10 +55,22 @@
 	function setSellDates($startDate , $endDate){
 	    global $conn;
             try{
-                $updateSellDatesQuery = "UPDATE Configuration SET StartDate = ?, EndDate = CURRENT_TIMESTAMP WHERE idConfiguration = ?;";
+                $updateSellDatesQuery = "UPDATE Configuration SET StartDate = ?, EndDate = ? WHERE IdConfiguration = ?;";
                 $params = array($startDate,$endDate,1);
                 $dataset = sqlsrv_query($conn, $updateSellDatesQuery, $params);
-		echo "yes";
+		$rowsAffected = sqlsrv_rows_affected($dataset);
+		
+		if($rowsAffected === false){
+			//error on query
+			echo "no";
+		}elseif($rowsAffected == -1){
+			//no rows affected, query correct
+			echo"no";
+		}else{
+			//rows affected correctly	
+			echo "yes";	
+		}
+		
                 }catch (Exception $err) {
                     echo "no";  
                 }	
