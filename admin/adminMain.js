@@ -32,7 +32,6 @@ function cargarFechasActuales(){
                      } else {
                     	//Set the dates on the ids
                             var currentDates = JSON.parse(data);
-                            date = currentDates;
                             $("#inicioVenta").val(currentDates.StartDate.date);
                             $("#finVenta").val(currentDates.EndDate.date);
                         }
@@ -105,6 +104,5 @@ function validarFechas(){
                     
             });
     }
-    
-    
 }
+    
