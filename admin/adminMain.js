@@ -22,7 +22,11 @@ function cargarFechasActuales(){
                      if(data === "no"){
                     	sweetAlert("Oops...", "Imposible recuperar fechas", "error");
                      } else {
-                    	console.log(data);
+                    	//Set the dates on the ids
+                            var currentDates = JSON.parse(data);
+                            console.log(currentDates);
+                            $("#inicioVenta").val(currentDates[0].StartDate.date);
+                            $("#finVenta").val(currentDates[0].EndDate.date);
                         }
                 }
             });
