@@ -92,7 +92,7 @@ function validarFechas(){
             $.ajax({
                 type: "POST",
                 url: 'ajaxInterface.php',
-                data: {func: "AJAXsetSellDates",arg1: startDate, arg2: endDate},
+                data: {func: "AJAXsetSellDates",arg1: fechaInicio, arg2: fechaFin},
                 success: function(data) {
                      if(data === "no"){
                     	sweetAlert("Oops...", "Imposible actualizar las fechas, intentelo denuevo.", "error");
