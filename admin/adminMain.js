@@ -1,4 +1,4 @@
-
+var date;
 function habilitarModificacionVenta(){
     //Activate the date fields
     $("#inicioVenta").removeAttr("disabled");
@@ -24,9 +24,10 @@ function cargarFechasActuales(){
                      } else {
                     	//Set the dates on the ids
                             var currentDates = JSON.parse(data);
+                            date = currentDates;
                             console.log(currentDates);
-                            $("#inicioVenta").val(currentDates[0].StartDate.date);
-                            $("#finVenta").val(currentDates[0].EndDate.date);
+                            $("#inicioVenta").val(currentDates.StartDate.date);
+                            $("#finVenta").val(currentDates.EndDate.date);
                         }
                 }
             });
