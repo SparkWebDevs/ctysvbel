@@ -2,7 +2,11 @@
 include 'header.php';
 include 'toolbar.php';
 ?>
-
+<style>
+        .main-content{
+                display: flex;
+        }
+</style>
     <script>
             $( document ).ready(function() {
             var today = new Date();
