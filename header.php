@@ -20,8 +20,9 @@
 		<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width,height=device-height">
 
 		<meta name="description" content="Estructura Para página">
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="js/jquery-paginate.min.js"></script>
+		
 		<script src="js/master.js"></script>
 
 	    <title>CETYS - Sorteos</title>
@@ -36,60 +37,6 @@ include 'header-nav.php';
 include 'navbar.php';
 ?>
 <div class="main-content">
-<?php include 'toolbar.php' ?>
-<div class="middle-content">
-    <table class="ticket-container">
-        <thead>
-            
-        </thead>
-        <tbody>
-            <tr>
-                <td><label for="">12021</label><input type="checkbox"></td>
-                <td><label for="">12022</label><input type="checkbox"></td>
-                <td><label for="">12023</label><input type="checkbox"></td>
-                <td><label for="">12024</label><input type="checkbox"></td>
-                <td><label for="">12025</label><input type="checkbox"></td>
-            </tr>
-            <tr>
-                <td><label for="">12021</label><input type="checkbox"></td>
-                <td><label for="">12022</label><input type="checkbox"></td>
-                <td><label for="">12023</label><input type="checkbox"></td>
-                <td><label for="">12024</label><input type="checkbox"></td>
-                <td><label for="">12025</label><input type="checkbox"></td>
-            </tr>
-            <tr>
-                <td><label for="">12021</label><input type="checkbox"></td>
-                <td><label for="">12022</label><input type="checkbox"></td>
-                <td><label for="">12023</label><input type="checkbox"></td>
-                <td><label for="">12024</label><input type="checkbox"></td>
-                <td><label for="">12025</label><input type="checkbox"></td>
-            </tr>
-            <tr>
-                <td><label for="">12021</label><input type="checkbox"></td>
-                <td><label for="">12022</label><input type="checkbox"></td>
-                <td><label for="">12023</label><input type="checkbox"></td>
-                <td><label for="">12024</label><input type="checkbox"></td>
-                <td><label for="">12025</label><input type="checkbox"></td>
-            </tr>
-            <tr>
-                <td><label for="">12021</label><input type="checkbox"></td>
-                <td><label for="">12022</label><input type="checkbox"></td>
-                <td><label for="">12023</label><input type="checkbox"></td>
-                <td><label for="">12024</label><input type="checkbox"></td>
-                <td><label for="">12025</label><input type="checkbox"></td>
-            </tr>
-            <tr>
-                <td><label for="">12021</label><input type="checkbox"></td>
-                <td><label for="">12022</label><input type="checkbox"></td>
-                <td><label for="">12023</label><input type="checkbox"></td>
-                <td><label for="">12024</label><input type="checkbox"></td>
-                <td><label for="">12025</label><input type="checkbox"></td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="page-navigation"></div>
-</div>
 
-<?php include 'toolbar-right.php' ?>
 
 

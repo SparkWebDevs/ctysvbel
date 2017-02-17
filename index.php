@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-include 'content.php';
+include 'toolbar.php';
 ?>
 
     <script>
@@ -26,6 +26,64 @@ include 'content.php';
             });
     </script>
 
+<div class="middle-content">
+    <table class="ticket-container">
+        <thead>
+            
+        </thead>
+        <tbody>
+            <tr>
+                <td><label for="">12021</label><input type="checkbox"></td>
+                <td><label for="">12022</label><input type="checkbox"></td>
+                <td><label for="">12023</label><input type="checkbox"></td>
+                <td><label for="">12024</label><input type="checkbox"></td>
+                <td><label for="">12025</label><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td><label for="">12021</label><input type="checkbox"></td>
+                <td><label for="">12022</label><input type="checkbox"></td>
+                <td><label for="">12023</label><input type="checkbox"></td>
+                <td><label for="">12024</label><input type="checkbox"></td>
+                <td><label for="">12025</label><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td><label for="">12021</label><input type="checkbox"></td>
+                <td><label for="">12022</label><input type="checkbox"></td>
+                <td><label for="">12023</label><input type="checkbox"></td>
+                <td><label for="">12024</label><input type="checkbox"></td>
+                <td><label for="">12025</label><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td><label for="">12021</label><input type="checkbox"></td>
+                <td><label for="">12022</label><input type="checkbox"></td>
+                <td><label for="">12023</label><input type="checkbox"></td>
+                <td><label for="">12024</label><input type="checkbox"></td>
+                <td><label for="">12025</label><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td><label for="">12021</label><input type="checkbox"></td>
+                <td><label for="">12022</label><input type="checkbox"></td>
+                <td><label for="">12023</label><input type="checkbox"></td>
+                <td><label for="">12024</label><input type="checkbox"></td>
+                <td><label for="">12025</label><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td><label for="">12021</label><input type="checkbox"></td>
+                <td><label for="">12022</label><input type="checkbox"></td>
+                <td><label for="">12023</label><input type="checkbox"></td>
+                <td><label for="">12024</label><input type="checkbox"></td>
+                <td><label for="">12025</label><input type="checkbox"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+
+
+
+
+
 <?php
+include 'toolbar-right.php';
 include 'footer.php';
 ?>
