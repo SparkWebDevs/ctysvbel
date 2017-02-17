@@ -1,67 +1,3 @@
-<style>
-    
-    
-    .toolbar {
-        width: 20%;
-        border-right: 1px solid #ffdd0c;
-        font-family: sans-serif;
-        padding: 0 10px;
-    } 
-    
-    .container {
-        flex-grow: 1;
-        width: 100%;
-        order: -1;
-    }
-    
-    .yellow-btn {
-        background: #ffdd0c;
-        border: none;
-        height: 35px;
-        font-weight: bold;
-        font-size: 15px;
-        font-family: sans-serif;
-        cursor: pointer;
-        color: #262626;
-        border-radius: 2px;
-        margin: 5px 0;
-        min-width: 70px;
-    }
-    
-    .yellow-btn:hover {
-	    background-color: #262626;
-        color: white;
-    }
-    
-    .yellow-btn:focus {
-        border: 1px;
-    } 
-    
-    input[type="number"] {
-        display: block;
-        -moz-appearance: textfield;
-        border: 2px solid #bebebe;
-        border-radius: 5px;
-        height: 30px;
-        margin: 5px;
-        margin-left: 15px;  
-        font-size: 15px;
-        padding: 0 5px;
-        
-    }
-    
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-    
-    select {
-        width: 60px;
-    }
-    
-
-</style>
 <div class="toolbar">
     <h3>Encuentra tu boleto de la suerte</h3>
     <form action="">
@@ -74,12 +10,12 @@
         <button class="yellow-btn">Encuentra tu boleto</button>
     </form>
     <h3>Aumentar resultados de busqueda</h3>
-    <select name="result-range" id="">
-        <option value="40">40</option>
-        <option value="80">80</option>
-        <option value="120">120</option>
-        <option value="160">160</option>
+    <select name="result-range" id="result-size">
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="75">75</option>
+        <option value="100">100</option>
         <option value="200">200</option>
     </select>
-    <input type="button" class="yellow-btn result-range-btn" value="Ir">
+    <input type="button" class="yellow-btn result-range-btn" value="Ir" id="search-btn">
 </div>
