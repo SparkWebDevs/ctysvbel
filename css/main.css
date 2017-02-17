@@ -23,6 +23,8 @@
 
 html,
 body {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 0;
     padding: 0;
@@ -45,12 +47,44 @@ body {
 .main-content {
     width: 100%;
     min-height: 100%;
-    position: relative;
-    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 
+.middle-content{
+    background: #d0d0d0;
+    width: 60%;
+}
 
+.ticket-container{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    max-height:  100px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
 
+.ticket-container tbody tr{
+	display: inline-block;
+}
+.ticket-container label {
+    display: block;
+}
+.ticket-container tbody td{
+    display: block;
+    padding: 20px;
+    text-align: center;
+    margin: 5px;
+    background: #F4B827;
+}
+
+.ticket-container tbody td:hover {
+	background: #FDE03D;
+}
 /*===================================
             NAVBAR AND FOOTER
 =====================================*/
@@ -107,18 +141,22 @@ body {
 }
 
 /*FOOTER*/
+
 .main-footer{
-    position: absolute;
-    bottom: 0;
     max-width: 100%;
     width: 100%;
     height: 175px;
     background-color: #F4B827;
     color: #000000;   
-    }
+    display: -webkit-box;   
+    display: -ms-flexbox;   
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
 
 .app-info{
-    position: absolute;
     text-align: center;
     bottom: 0;
     width: 100%;
@@ -126,11 +164,10 @@ body {
 }
 
 .subscribe-footer{
-    right: 0px;
-    position: absolute;
-    width: auto;
     margin: 15px 5px 5px 5px;
-    }
+}
+
+
 
 .footer-menu-links{
     width: 20%;
@@ -155,8 +192,15 @@ body {
 =============================================*/
 
     .admin-login-container{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         width: 35%;
         margin: auto;
@@ -166,7 +210,12 @@ body {
 
     .admin-login-form {
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
 
@@ -189,6 +238,7 @@ body {
 
     .admin-login-container button {
         width: 50%;
+        -ms-flex-item-align: center;
         align-self: center;
         border: none;
         text-transform: uppercase;

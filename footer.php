@@ -17,6 +17,11 @@
 						<br>
 				</div>
 				
+                <div class="app-info">
+				    <span class="app-name">CETYS Universidad</span><br/>
+				    <span class="copyright-info">SparkTechnologies 2017</span>
+			    </div>
+				
 				
 
 				<div class="col-sm-5 subscribe-footer">
@@ -31,10 +36,7 @@
 				</div>
 
 			
-			<div class="app-info">
-				<span class="app-name">CETYS Universidad</span><br/>
-				<span class="copyright-info">SparkTechnologies 2017</span>
-			</div>
+
 				
 	</div> <!-- main-footer -->
 
