@@ -198,7 +198,7 @@ function buildTicketsTable(resultNumbers, ticketsDesc){
         console.log(resultNumbers);
         var printableTickets = ticketsDesc.length;
         var innerTable = "";
-        var remainder = ticketsDesc % 5;
+        var remainder = printableTickets % 5;
         console.log(remainder);
         
     
