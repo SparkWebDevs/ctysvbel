@@ -432,6 +432,8 @@ function printCartList(){
 	"</div>";
     
     }
+    
+    document.getElementById("items-list").innerHTML = cartHTML;
 }
 
 function clearCartList(){
