@@ -1,10 +1,6 @@
 var currentTableData;
 $(document).ready(function(){
-    numTickets =randomIntFromInterval(1, 200);
-    console.log(numTickets);
-    
-    buildTicketsTable(26);
-    addTableFeatures();
+    getTicketsFromDb();
 
     $("#search-btn").click(function(){
            var numberOfTickets = $("#result-size").val();
@@ -20,7 +16,10 @@ $(document).ready(function(){
         $(this).next().after('<input type="number" class="ticket-input" placeholder="Introduce numero">');
     });    
     
-    function startWith(number) {
+    
+}); //ENDS on DOCUMENT LOAD
+
+function startWith(number) {
         $('#table-content td').each(function() {
         if( !($(this).text().startsWith(number)) ) {
                 $(this).css('display', 'none');            
@@ -79,7 +78,6 @@ $(document).ready(function(){
         }
     });
 
-});
 
 
 function extractTicketNumber() {
@@ -172,9 +170,11 @@ function getTicketsFromDb(){
                 data: {func: "AJAXGetTickets"},
                 success: function(data) {
                      if(data === "no"){
-                    	sweetAlert("Oops...", "Imposible acceder a la venta de boletos, intente mas tarde", "error");
+                    	sweetAlert("Oops...", "Imposible conectarse con BD", "error");
                      } else {
-                        console.log(data);    
+                        var dbTickets = JSON.parse(data);
+                        console.log(dbTickets);
+                        buildTicketsTable(100 , dbTickets);
                     }
                 }
             });
@@ -189,13 +189,14 @@ function getCheckedTickets() {
             selectedTickets.push($(this).siblings('label').text());
         }    
     });
-    console.log(selectedTickets)
+    console.log(selectedTickets);
 }
 
 
 //build the table, the tickets var should contain all the infor about that ticket
-function buildTicketsTable(resultNumbers){
+function buildTicketsTable(resultNumbers, ticketsDesc){
         console.log(resultNumbers);
+        console.log(ticketsDesc.lenght);
         var innerTable = "";
         var remainder = resultNumbers % 5;
         console.log(remainder);
@@ -245,9 +246,9 @@ function buildTicketsTable(resultNumbers){
     
         // If there's no remainder, just draw the rows 
         else {
-            for(var x=0 ; x<resultNumbers/5; x++){
+            for(var y=0 ; y<resultNumbers/5; y++){
                     innerTable += "<tr>";
-                    for(var c=0 ; c < 5; c++){
+                    for(var d=0 ; d < 5; d++){
                          var ticketID = randomIntFromInterval(2000,2499);
                          innerTable += "<td><label for=''>"+ticketID+"</label><input type='checkbox' class='ticketCheck'></td>";
                     }
@@ -273,5 +274,4 @@ function randomIntFromInterval(min,max)
     return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-extractTicketNumber();
 
