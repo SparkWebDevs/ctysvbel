@@ -48,6 +48,25 @@ $(document).ready(function(){
     
 }); //ENDS on DOCUMENT LOAD
 
+
+function unreserveTickets(){
+    var currentDate = getDateWithOption(1);
+     $.ajax({
+                type: "POST",
+                url: 'masterInterface.php',
+                data: {func: "AJAXUneserveTickets", arg1:currentDate},
+                success: function(data) {
+                     if(data === "no"){
+                    	console.log("Boletos no desbloqueados");
+                     } else {
+                            console.log(data);
+                            console.log("Se desbloquearon boletos");
+                            
+                        }
+                }
+            });
+}
+
 function reserveTicketsForPurchase(){//Reservar los tickets para no ser visibles por un periodo de 20 Min
     var reservedLimit = getDateWithOption(2);
     var ticketsListJSON = JSON.stringify(ticketsList);

@@ -10,6 +10,7 @@ include 'toolbar.php';
         }
 </style>
     <script>
+        unreserveTickets();
             $( document ).ready(function() {
             checkSelling();
             });

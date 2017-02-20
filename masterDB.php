@@ -37,8 +37,9 @@
         global $conn;
         
             try{
-                $getCurrentDatesQuery = "SELECT TOP 100 IdTicket, TicketNumber FROM Tickets;";
-                $dataset = sqlsrv_query($conn, $getCurrentDatesQuery);
+                $getCurrentDatesQuery = "SELECT TOP 100 IdTicket, TicketNumber FROM Tickets WHERE IdStatus = ?;";
+		$params = array(1);
+                $dataset = sqlsrv_query($conn, $getCurrentDatesQuery,$params);
                 
                 if(sqlsrv_has_rows($dataset) === FALSE){
                     echo "no";
@@ -75,8 +76,27 @@
 		if($queryError){
 			echo "no";
 		}else{
-			echo count($ticketsList);
+			echo "yes";
 		}
+
+                }catch (Exception $err) {
+                    echo "no";  
+                }
+    }
+    
+    function unreserveTickets($currentDate){
+		global $conn;
+            try{
+
+		$unreserveTicketsQuery = "UPDATE Tickets SET IdStatus = ?, ReservedLimit = ? WHERE ReservedLimit < ?;";
+		$params = array(1,NULL,$currentDate);
+		$dataset = sqlsrv_query($conn, $unreserveTicketsQuery, $params);
+		
+		if(sqlsrv_rows_affected($dataset) === FALSE){
+			echo "no";
+			}else{
+			echo sqlsrv_rows_affected($dataset);
+			}
 
                 }catch (Exception $err) {
                     echo "no";  

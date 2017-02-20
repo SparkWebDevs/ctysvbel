@@ -29,5 +29,9 @@
 	function AJAXReserveTickets($tickets,$reservedLimit){
 		reserveTickets($tickets, $reservedLimit);
 	}
+	
+		function AJAXUneserveTickets($currentDate){
+		unreserveTickets($currentDate);
+	}
 
 ?>
