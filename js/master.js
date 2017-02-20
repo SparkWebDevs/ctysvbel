@@ -156,7 +156,7 @@ function checkSelling(today){
                             console.log(currentDates.EndDate.date);
                             if(today >= currentDates.StartDate.date && today <= currentDates.EndDate.date){
                                 console.log("la venta vence en: ");
-                                console.lof(currentDates.EndDate,date);
+                                console.log(currentDates.EndDate.date);
                                 //sweetAlert("Alerta", "La venta se encuentra activa", "success");
                             }else{
                                 sweetAlert("Oops...", "La venta se encuentra inactiva desde: "+currentDates.EndDate.date+" :(", "error");
@@ -193,15 +193,25 @@ function getCheckedTickets() {
     });
 }
 
+function clearTicketsList(){
+    $('.ticketCheck').each(function(){
+       $(this).prop("checked",false);  
+    });
+    ticketsList = [];
+}
+
 $('#add-list-btn').click(function(){
     getCheckedTickets();
     console.log(ticketsList);
     });
 
 $('#clear-list-btn').click(function(){
-    ticketsList = [];
+
+    cleartTicketsList();
     console.log(ticketsList);
     });
+
+
 
 
 
@@ -275,8 +285,8 @@ function buildTicketsTable(resultNumbers, ticketsDesc){
             addTableFeatures();
         }else{//Initialize the table for the first time
             console.log("no table init yet");
-            addTableFeatures();
             document.getElementById("table-content").innerHTML = innerTable;
+            addTableFeatures();
         }    
 }
 

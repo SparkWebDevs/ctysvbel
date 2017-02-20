@@ -408,6 +408,11 @@ body {
 .selection-opt-btn span{
     margin-left: 3px;
 }
+
+.tickets-table input{
+    width: 20px;
+    height: 20px;
+}
 /*  PAGINACION */
 .col-sm-7{
     width:100%;
