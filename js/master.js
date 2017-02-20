@@ -48,6 +48,25 @@ $(document).ready(function(){
     
 }); //ENDS on DOCUMENT LOAD
 
+function reserveTicketsForPurchase(){//Reservar los tickets para no ser visibles por un periodo de 20 Min
+    var reservedLimit = getDateWithOption(2);
+    console.log(reservedLimit);
+            $.ajax({
+                type: "POST",
+                url: 'masterInterface.php',
+                data: {func: "AJAXReserveTickets", arg1:ticketsList, arg2:reservedLimit},
+                success: function(data) {
+                     if(data === "no"){
+                    	console.log("boletos no actualizados");
+                     } else {
+                            console.log(data);
+                            console.log("Boletos actualizados");
+                            
+                        }
+                }
+            });
+}
+
 function startWith(number) {
         $('#table-content td').each(function() {
         if( !($(this).text().startsWith(number)) ) {
@@ -151,7 +170,8 @@ function addTableFeatures() {
 }      
 
 
-function checkSelling(today){
+function checkSelling(){
+    var today = getDateWithOption(1);
         $.ajax({
                 type: "POST",
                 url: 'masterInterface.php',
@@ -295,4 +315,59 @@ function randomIntFromInterval(min,max)
     return Math.floor(Math.random()*(max-min+1)+min);
 }
 
+function getDateWithOption(opt){
+        
+        var today = new Date();
+        var dd; 
+        var mm; 
+        var yyyy; 
+        var HH; 
+        var MM;
+        var SS;
+                    
+        switch(opt){
+            
+            case 1: // CurrentDate
+                    dd = today.getDate();
+                    mm = today.getMonth()+1; //January is 0!
+                    yyyy = today.getFullYear();
+                    HH = today.getHours() + ":";
+                    MM = today.getMinutes() + ":";
+                    SS = today.getSeconds();           
+                break;
+            
+            case 2:// CurrentDate + 20 min
+                    dd = today.getDate();
+                    mm = today.getMonth()+1; //January is 0!
+                    yyyy = today.getFullYear();
+                    HH = today.getHours() + ":";
+                    MM = today.getMinutes()+20+ ":";
+                    SS = today.getSeconds();     
+                break;
+            
+            case 3://CurrentDate + 1hour
+                    dd = today.getDate();
+                    mm = today.getMonth()+1; //January is 0!
+                    yyyy = today.getFullYear();
+                    HH = today.getHours() + 1 + ":";
+                    MM = today.getMinutes()+ ":";
+                    SS = today.getSeconds();   
+                break;
+            
+            case 4:
+                break;
+            
+        }
+           
+            if(dd<10) {
+            dd='0'+dd;
+            } 
+
+            if(mm<10) {
+            mm='0'+mm;
+            } 
+            today = yyyy+'-'+mm+'-'+dd+" "+HH+MM+SS;
+            return today;
+
+}
 

@@ -57,5 +57,29 @@
             }
         
     }
+    
+    function reserveTickets($tickets, $reservedLimit){
+		global $conn;
+		$queryError = false;
+            try{
+		for($x=0 ; $x<$tickets.count(); $x++){ //loop through the tickets list
+			$reserveTicketsQuery = "UPDATE Tickets SET IdStatus = ?, ReservedLimit = ? WHERE IdTicket = ?;";
+			$params = array(3,$reservedLimit,$tickets[$x]);
+			$dataset = sqlsrv_query($conn, $reserveTicketsQuery, $params);
+			if(sqlsrv_rows_affected($dataset) === FALSE){
+				$queryError = true;
+			}
+		}
+		
+		if($queryError){
+			echo "no";
+		}else{
+			echo "yes";
+		}
+
+                }catch (Exception $err) {
+                    echo "no";  
+                }
+    }
 
 ?>

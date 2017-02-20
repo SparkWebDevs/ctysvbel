@@ -25,5 +25,9 @@
     function AJAXGetTickets() {
         loadAvailableTickets();        
     }
+	
+	function AJAXReserveTickets($tickets,$reservedLimit){
+		reserveTickets($tickets, $reservedLimit);
+	}
 
 ?>
