@@ -54,7 +54,7 @@ function reserveTicketsForPurchase(){//Reservar los tickets para no ser visibles
             $.ajax({
                 type: "POST",
                 url: 'masterInterface.php',
-                data: {func: "AJAXReserveTickets", arg1:ticketsList, arg2:reservedLimit},
+                data: {func: "AJAXReserveTickets", arg1:JSON.stringify(ticketsList), arg2:reservedLimit},
                 success: function(data) {
                      if(data === "no"){
                     	console.log("boletos no actualizados");
