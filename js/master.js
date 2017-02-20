@@ -201,13 +201,14 @@ function clearTicketsList(){
 }
 
 $('#add-list-btn').click(function(){
+    console.log("called add");
     getCheckedTickets();
     console.log(ticketsList);
     });
 
 $('#clear-list-btn').click(function(){
-
-    cleartTicketsList();
+    console.log("called clear");
+    clearTicketsList();
     console.log(ticketsList);
     });
 
@@ -223,6 +224,7 @@ function buildTicketsTable(resultNumbers, ticketsDesc){
         console.log(resultNumbers);
         var printableTickets = ticketsDesc.length;
         var innerTable = "";
+        var ticketCount = 0;
         var remainder = printableTickets % 5;
         console.log(remainder);
         
@@ -232,7 +234,8 @@ function buildTicketsTable(resultNumbers, ticketsDesc){
             for(var x=0 ; x<(printableTickets-remainder)/5 ; x++){//Fill all the complete rows
                 innerTable += "<tr>";
                 for(var c=0 ; c < 5; c++){
-                     innerTable += "<td><label for=''>"+ticketsDesc[c].TicketNumber+"</label><input id="+ticketsDesc[c].IdTicket+" type='checkbox' class='ticketCheck'></td>";
+                     innerTable += "<td><label for=''>"+ticketsDesc[ticketCount].TicketNumber+"</label><input id="+ticketsDesc[ticketCount].IdTicket+" type='checkbox' class='ticketCheck'></td>";
+                     ticketCount++;
                 }
                 innerTable += "</tr>";
             }
@@ -240,7 +243,8 @@ function buildTicketsTable(resultNumbers, ticketsDesc){
             
             innerTable += "<tr>";
             for(var n=0; n < remainder; n++) {//Fill the last row with the ramining value
-                    innerTable += "<td><label for=''>"+ticketsDesc[n].TicketNumber+"</label><input id="+ticketsDesc[n].IdTicket+" type='checkbox' class='ticketCheck'></td>";
+                    innerTable += "<td><label for=''>"+ticketsDesc[ticketCount].TicketNumber+"</label><input id="+ticketsDesc[ticketCount].IdTicket+" type='checkbox' class='ticketCheck'></td>";
+                    ticketCount++;
             }
             //Fill that last row with empty tickets                
             switch(5-remainder) {
@@ -269,7 +273,8 @@ function buildTicketsTable(resultNumbers, ticketsDesc){
             for(var y=0 ; y<printableTickets/5; y++){
                     innerTable += "<tr>";
                     for(var d=0 ; d < 5; d++){
-                         innerTable += "<td><label for=''>"+ticketsDesc[d].TicketNumber+"</label><input id="+ticketsDesc[d].IdTicket+" type='checkbox' class='ticketCheck'></td>";
+                         innerTable += "<td><label for=''>"+ticketsDesc[ticketCount].TicketNumber+"</label><input id="+ticketsDesc[ticketCount].IdTicket+" type='checkbox' class='ticketCheck'></td>";
+                         ticketCount++;
                     }
                     innerTable += "</tr>";  
             }
