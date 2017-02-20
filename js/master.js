@@ -1,5 +1,19 @@
 var currentTableData;
 var ticketsList = [];
+
+//TICKET OBJECT DEF
+function Ticket (IdTicket,TicketNumber,TicketFirstName,TicketSecondName,TicketLastName,TicketSecondLastName) {
+    this.IdTicket = IdTicket;
+    this.TicketNumber = TicketNumber;
+    this.TicketFirstName = TicketFirstName;
+    this.TicketSecondName = TicketSecondName;
+    this.TicketLastName = TicketLastName;
+    this.TicketSecondLastName = TicketSecondLastName;
+
+}
+
+
+
 $(document).ready(function(){
     getTicketsFromDb();
 
@@ -236,11 +250,13 @@ function getTicketsFromDb(){
 }
 
 
-// Get array with selected tickets 
+// Get array with selected tickets
+//function Ticket (IdTicket,TicketNumber,TicketFirstName,TicketSecondName,TicketLastName,TicketSecondLastName) 
 function getCheckedTickets() {
     $('.ticketCheck').each(function(){
         if( $(this).prop('checked')) {
-            ticketsList.push($(this).attr("id"));
+            var ticketDef = new Ticket($(this).attr("id"),$(this).siblings('label').text(),"","","","");
+            ticketsList.push(ticketDef);
         }    
     });
 }
