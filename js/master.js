@@ -217,24 +217,24 @@ function buildTicketsTable(resultNumbers, ticketsDesc){
             for(var n=0; n < remainder; n++) {//Fill the last row with the ramining value
                     innerTable += "<td><label for=''>"+ticketsDesc[n].TicketNumber+"</label><input id="+ticketsDesc[n].IdTicket+" type='checkbox' class='ticketCheck'></td>";
             }
-                            
-            //switch(5-remainder) {
-            //    case 1:
-            //        innerTable+="<td style='visibility:hidden;'></td>";
-            //        break;
-            //    case 2:
-            //        innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
-            //        break;
-            //    case 3:
-            //        innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
-            //        break;
-            //    case 4:
-            //        innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
-            //        break;
-            //    default:
-            //        console.log('Some error');
-            //        break;                        
-            //}
+            //Fill that last row with empty tickets.                
+            switch(5-remainder) {
+                case 1:
+                    innerTable+="<td style='visibility:hidden;'></td>";
+                    break;
+                case 2:
+                    innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
+                    break;
+                case 3:
+                    innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
+                    break;
+                case 4:
+                    innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
+                    break;
+                default:
+                    console.log('Some error');
+                    break;                        
+            }
             innerTable += "</tr>";
    
         } 
