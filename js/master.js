@@ -196,50 +196,45 @@ function getCheckedTickets() {
 //build the table, the tickets var should contain all the infor about that ticket
 function buildTicketsTable(resultNumbers, ticketsDesc){
         console.log(resultNumbers);
-        console.log(ticketsDesc.lenght);
+        console.log(ticketsDesc.length);
         var innerTable = "";
         var remainder = resultNumbers % 5;
         console.log(remainder);
         
     
         // If there's remainder, subtract remainder from resultNumbers and create a separate row 
-        if(remainder!=0) {
-            for(var x=0 ; x<(resultNumbers-remainder)/5 ; x++){
+        if(remainder!==0) {
+            for(var x=0 ; x<(resultNumbers-remainder)/5 ; x++){//Fill all the complete rows
                 innerTable += "<tr>";
                 for(var c=0 ; c < 5; c++){
-                     var ticketID = randomIntFromInterval(2000,2499);
-                     innerTable += "<td><label for=''>"+ticketID+"</label><input type='checkbox' class='ticketCheck'></td>";
+                     innerTable += "<td><label for=''>"+ticketsDesc[c].TicketNumber+"</label><input id="+ticketsDesc[c].IdTicket+" type='checkbox' class='ticketCheck'></td>";
                 }
                 innerTable += "</tr>";
             }
             
             
             innerTable += "<tr>";
-            
-            
-            for(var c=0; c < remainder; c++) {
-
-                    var ticketID = randomIntFromInterval(2000,2499);
-                    innerTable += "<td><label for=''>"+ticketID+"</label><input type='checkbox' class='ticketCheck'></td>";
+            for(var n=0; n < remainder; n++) {//Fill the last row with the ramining value
+                    innerTable += "<td><label for=''>"+ticketsDesc[n].TicketNumber+"</label><input id="+ticketsDesc[n].IdTicket+" type='checkbox' class='ticketCheck'></td>";
             }
                             
-            switch(5-remainder) {
-                case 1:
-                    innerTable+="<td style='visibility:hidden;'></td>";
-                    break;
-                case 2:
-                    innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
-                    break;
-                case 3:
-                    innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
-                    break;
-                case 4:
-                    innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
-                    break;
-                default:
-                    console.log('Some error');
-                    break;                        
-            }
+            //switch(5-remainder) {
+            //    case 1:
+            //        innerTable+="<td style='visibility:hidden;'></td>";
+            //        break;
+            //    case 2:
+            //        innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
+            //        break;
+            //    case 3:
+            //        innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
+            //        break;
+            //    case 4:
+            //        innerTable+="<td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td><td style='visibility:hidden;'></td>";
+            //        break;
+            //    default:
+            //        console.log('Some error');
+            //        break;                        
+            //}
             innerTable += "</tr>";
    
         } 
@@ -249,21 +244,21 @@ function buildTicketsTable(resultNumbers, ticketsDesc){
             for(var y=0 ; y<resultNumbers/5; y++){
                     innerTable += "<tr>";
                     for(var d=0 ; d < 5; d++){
-                         var ticketID = randomIntFromInterval(2000,2499);
-                         innerTable += "<td><label for=''>"+ticketID+"</label><input type='checkbox' class='ticketCheck'></td>";
+                         innerTable += "<td><label for=''>"+ticketsDesc[d].TicketNumber+"</label><input id="+ticketsDesc[d].IdTicket+" type='checkbox' class='ticketCheck'></td>";
                     }
                     innerTable += "</tr>";  
             }
             
         }
-        //Tabla construida
-        if(currentTableData){
+        
+
+        if(currentTableData){//If table definition exists, destroy to create a new one
             console.log(currentTableData);
             console.log("we have a table");
             currentTableData.destroy();
             document.getElementById("table-content").innerHTML = innerTable;
             addTableFeatures();
-        }else{
+        }else{//Initialize the table for the first time
             console.log("no table init yet");
             document.getElementById("table-content").innerHTML = innerTable;
         }    
