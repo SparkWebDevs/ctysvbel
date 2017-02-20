@@ -49,8 +49,8 @@ include 'toolbar.php';
     
     
     <div class="selection-options-cont">
-        <button class="selection-opt-btn btn">Eliminar Seleccion <span class="glyphicon glyphicon-trash"></span></button>
-        <button class="selection-opt-btn btn">Agregar a Mi Lista <span class="glyphicon glyphicon-check"></span></button>
+        <button id="clear-list-btn" class="selection-opt-btn btn">Eliminar Seleccion <span class="glyphicon glyphicon-trash"></span></button>
+        <button id="add-list-btn" class="selection-opt-btn btn">Agregar a Mi Lista <span class="glyphicon glyphicon-check"></span></button>
     </div>
 </div>
 

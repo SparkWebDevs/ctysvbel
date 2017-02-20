@@ -1,4 +1,5 @@
 var currentTableData;
+var ticketsList = [];
 $(document).ready(function(){
     getTicketsFromDb();
 
@@ -154,9 +155,11 @@ function checkSelling(today){
                             console.log(currentDates.StartDate.date);
                             console.log(currentDates.EndDate.date);
                             if(today >= currentDates.StartDate.date && today <= currentDates.EndDate.date){
-                                sweetAlert("Alerta", "La venta se encuentra activa", "success");
+                                console.log("la venta vence en: ");
+                                console.lof(currentDates.EndDate,date);
+                                //sweetAlert("Alerta", "La venta se encuentra activa", "success");
                             }else{
-                                sweetAlert("Oops...", "La venta se encuentra inactiva :(", "error");
+                                sweetAlert("Oops...", "La venta se encuentra inactiva desde: "+currentDates.EndDate.date+" :(", "error");
                             }
                         }
                 }
@@ -183,14 +186,26 @@ function getTicketsFromDb(){
 
 // Get array with selected tickets 
 function getCheckedTickets() {
-    var selectedTickets = [];
     $('.ticketCheck').each(function(){
         if( $(this).prop('checked')) {
-            selectedTickets.push($(this).siblings('label').text());
+            ticketsList.push($(this).attr("id"));
         }    
     });
-    console.log(selectedTickets);
 }
+
+$('#add-list-btn').click(function(){
+    getCheckedTickets();
+    console.log(ticketsList);
+    });
+
+$('#clear-list-btn').click(function(){
+    ticketsList = [];
+    console.log(ticketsList);
+    });
+
+
+
+
 
 
 //build the table, the tickets var should contain all the infor about that ticket
@@ -217,7 +232,7 @@ function buildTicketsTable(resultNumbers, ticketsDesc){
             for(var n=0; n < remainder; n++) {//Fill the last row with the ramining value
                     innerTable += "<td><label for=''>"+ticketsDesc[n].TicketNumber+"</label><input id="+ticketsDesc[n].IdTicket+" type='checkbox' class='ticketCheck'></td>";
             }
-            //Fill that last row with empty tickets.                
+            //Fill that last row with empty tickets                
             switch(5-remainder) {
                 case 1:
                     innerTable+="<td style='visibility:hidden;'></td>";
@@ -260,6 +275,7 @@ function buildTicketsTable(resultNumbers, ticketsDesc){
             addTableFeatures();
         }else{//Initialize the table for the first time
             console.log("no table init yet");
+            addTableFeatures();
             document.getElementById("table-content").innerHTML = innerTable;
         }    
 }
