@@ -262,10 +262,10 @@ body {
 =============================================*/
     .toolbar-right {
         width: 20%;
+        position: relative;
         border-left: 1px solid #ffdd0c;
-        background: #72b0d0;
+        background: #FFFFFF;
         font-family: sans-serif;
-        padding: 0 10px;
     }
     
     .toolbar {
@@ -422,6 +422,124 @@ body {
     width: 85%;
     margin: auto;
     text-align: center;
+}
+
+
+/*===========================================
+                    CART
+=============================================*/
+
+
+.cart-footer{
+    border-top: 2px solid #F4B827;
+    padding: 5px 5px;
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+    text-align: center;
+    background: #FFFFFF;
+    width: 100%;
+}
+
+.cart-header{
+    border-bottom: 2px solid #F4B827;
+    padding: 5px 5px;
+    position: absolute;
+    top: 0;
+    height: 70px;
+    text-align: center;
+    background: #FFFFFF;
+    width: 100%;
+}
+
+.cart-header h3{
+    color: #337ab7;
+    font-weight: bold;
+}
+
+.cart-info{
+    text-align: left;
+}
+
+.cart-info span{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cart-footer button{
+    background: #F4B827;
+    font-weight: bold;
+}
+
+.items-list-cont{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 85px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    background: #FFFFFF;
+    width: 100%;
+    
+}
+
+.item-desc{
+    margin: 5px 0;
+    padding: 5px;
+    display: flex;
+}
+
+.item-img-cont{
+    width: 30%;
+}
+
+.item-img{
+    width: 100%;
+}
+
+.ticket-desc-cont{
+    width: 100%;
+    display: flex;
+}
+
+.item-number{
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    width: 70%;
+}
+
+.item-price{
+    display: block;
+    font-size: 16px;
+    right: 0px;
+    width: 30%;
+    text-align: right;
+}
+
+.item-details-cont{
+    width: 70%;
+    height: auto;
+    margin: auto;
+}
+
+.item-secondary-details{
+    display: flex;
+    width: 100%;
+}
+
+.item-secondary-details span{
+    width: 80%;
+    font-size: 14px;
+    text-align: left;
+}
+
+.item-secondary-details button{
+    width: 45px;
+    height: 30px;
 }
 
 

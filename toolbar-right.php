@@ -1,6 +1,19 @@
 <div class="toolbar-right">
-    <h3>Area de Carrito</h3>
-	<p>
-		Esta es una barra de tareas ejemplo en donde se va a incluir la lista de boletos seleccionada por el usuario y el boton para ir a checkout!
-	</p>
+<div class="cart-header">
+	<div class="cart-header-info">
+		<h3>Mi Lista Ganadora</h3>
+	</div>
+</div>
+<div id="items-list" class="items-list-cont">
+	
+</div>
+
+			
+
+<div class="cart-footer">
+	<div class="cart-info">
+		<span class="cart-total">Total $</span><br>
+	</div>
+	<button class="comprar-btn btn">COMPRAR</button>
+</div>	
 </div>

@@ -411,3 +411,30 @@ function getDateWithOption(opt){
 
 }
 
+
+function printCartList(){
+    var cartHTML="";
+    for(var x=0; x<ticketsList.length; x++){
+        cartHTML += "<div class='item-desc' id='"+ticketsList[x].IdTicket+"'>"+
+		"<div class='item-img-cont'>"+
+			"<img class='item-img' src='img/ticket.png'/>"+
+		"</div>"+
+		"<div class='item-details-cont'>"+
+			"<div class='ticket-desc-cont'>"+
+				"<span class='item-number'>Ticket No.</span>"+
+				"<span class='item-price'>$299</span>"+
+			"</div>"+
+			"<div class='item-secondary-details'>"+
+				"<span>"+ticketsList[x].TicketNumber+"</span>"+
+				"<button class='btn btn-danger'><span class='glyphicon glyphicon-remove' onclick='removeItemFromCart("+ticketsList[x].IdTicket+")'></span></button>"+
+			"</div>"+	
+		"</div>"+
+	"</div>";
+    
+    }
+}
+
+function clearCartList(){
+    document.getElementById("items-list").innerHTML = "";
+}
+
