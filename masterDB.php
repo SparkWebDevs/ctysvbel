@@ -33,5 +33,29 @@
                 }
 	}
 	
-    
+    function loadAvailableTickets() {
+        global $conn;
+        
+            try{
+                $getCurrentDatesQuery = "SELECT TOP 100 IdTicket, TicketNumber FROM Tickets;";
+                $dataset = sqlsrv_query($conn, $getCurrentDatesQuery);
+                
+                if(sqlsrv_has_rows($dataset) === FALSE){
+                    echo "no";
+                }else{
+                    $x = 0;
+                    $masterResults = [];
+                    while($results = sqlsrv_fetch_array($dataset,SQLSRV_FETCH_ASSOC)){
+                        $masterResults[$x] = $results;
+                        $x++;
+                    }        
+                    echo json_encode($masterResults);
+                }
+                
+            }catch (Exception $err) {
+                    echo "no";  
+            }
+        
+    }
+
 ?>

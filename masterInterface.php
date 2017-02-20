@@ -22,4 +22,8 @@
         loadCurrentDates();
     }
 
+    function AJAXGetTickets() {
+        loadAvailableTickets();        
+    }
+
 ?>
