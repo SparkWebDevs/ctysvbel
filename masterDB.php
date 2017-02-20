@@ -68,7 +68,7 @@
 			$reserveTicketsQuery = "UPDATE Tickets SET IdStatus = ?, ReservedLimit = ? WHERE IdTicket = ?;";
 			$params = array(3,$reservedLimit,$ticketsList[$x]);
 			$dataset = sqlsrv_query($conn, $reserveTicketsQuery, $params);
-			if(sqlsrv_rows_affected($dataset) === FALSE){
+			if(sqlsrv_rows_affected($dataset) == FALSE){
 				$queryError = true;
 			}
 		}
@@ -92,7 +92,7 @@
 		$params = array(1,NULL,$currentDate);
 		$dataset = sqlsrv_query($conn, $unreserveTicketsQuery, $params);
 		
-		if(sqlsrv_rows_affected($dataset) === FALSE){
+		if(sqlsrv_rows_affected($dataset) == FALSE){
 			echo "no";
 			}else{
 			echo sqlsrv_rows_affected($dataset);
