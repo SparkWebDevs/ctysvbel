@@ -62,6 +62,7 @@
     function reserveTickets($tickets, $reservedLimit){
 		global $conn;
 		$ticketsList = json_decode($tickets);
+		echo var_dump($ticketsList);
 		$queryError = false;
             try{
 		for($x=0 ; $x < count($ticketsList); $x++){ //loop through the tickets list
@@ -80,7 +81,7 @@
 		}
 
                 }catch (Exception $err) {
-                    echo $err;  
+                    echo "no";  
                 }
     }
     
