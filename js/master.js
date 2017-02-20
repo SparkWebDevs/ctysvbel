@@ -196,15 +196,15 @@ function getCheckedTickets() {
 //build the table, the tickets var should contain all the infor about that ticket
 function buildTicketsTable(resultNumbers, ticketsDesc){
         console.log(resultNumbers);
-        console.log(ticketsDesc.length);
+        var printableTickets = ticketsDesc.length;
         var innerTable = "";
-        var remainder = resultNumbers % 5;
+        var remainder = ticketsDesc % 5;
         console.log(remainder);
         
     
         // If there's remainder, subtract remainder from resultNumbers and create a separate row 
         if(remainder!==0) {
-            for(var x=0 ; x<(resultNumbers-remainder)/5 ; x++){//Fill all the complete rows
+            for(var x=0 ; x<(printableTickets-remainder)/5 ; x++){//Fill all the complete rows
                 innerTable += "<tr>";
                 for(var c=0 ; c < 5; c++){
                      innerTable += "<td><label for=''>"+ticketsDesc[c].TicketNumber+"</label><input id="+ticketsDesc[c].IdTicket+" type='checkbox' class='ticketCheck'></td>";
@@ -241,7 +241,7 @@ function buildTicketsTable(resultNumbers, ticketsDesc){
     
         // If there's no remainder, just draw the rows 
         else {
-            for(var y=0 ; y<resultNumbers/5; y++){
+            for(var y=0 ; y<printableTickets/5; y++){
                     innerTable += "<tr>";
                     for(var d=0 ; d < 5; d++){
                          innerTable += "<td><label for=''>"+ticketsDesc[d].TicketNumber+"</label><input id="+ticketsDesc[d].IdTicket+" type='checkbox' class='ticketCheck'></td>";
