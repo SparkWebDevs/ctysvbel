@@ -85,6 +85,7 @@ function reserveTicketsForPurchase(){//Reservar los tickets para no ser visibles
     var reservedLimit = getDateWithOption(2);
     var ticketsListJSON = JSON.stringify(ticketsList);
     console.log(reservedLimit);
+    console.log(ticketsListJSON);
             $.ajax({
                 type: "POST",
                 url: 'masterInterface.php',

@@ -80,7 +80,7 @@
 		}
 
                 }catch (Exception $err) {
-                    echo "no";  
+                    echo $err;  
                 }
     }
     
