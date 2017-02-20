@@ -15,7 +15,35 @@ $(document).ready(function(){
         
         $(this).addClass('selected-categorie');
         $(this).next().after('<input type="number" class="ticket-input" placeholder="Introduce numero">');
-    });    
+    });
+    
+    $('#add-list-btn').click(function(){
+    console.log("called add");
+    getCheckedTickets();
+    console.log(ticketsList);
+    });
+
+    $('#clear-list-btn').click(function(){
+    console.log("called clear");
+    clearTicketsList();
+    console.log(ticketsList);
+    });
+    
+        // Filter results  
+    $('.toolbar form .yellow-btn').click(function() {
+        event.preventDefault();
+        var number = $('.ticket-input').val();
+        var categorie = parseInt($('.selected-categorie').val());
+        console.log(categorie);
+        
+        switch(categorie) {
+            case 1: 
+                startWith(number);
+                break;
+            default:
+                console.log('error');
+        }
+    });
     
     
 }); //ENDS on DOCUMENT LOAD
@@ -63,22 +91,6 @@ function startWith(number) {
         return sum;
     }
     
-    // Filter results  
-    $('.toolbar form .yellow-btn').click(function() {
-        event.preventDefault();
-        var number = $('.ticket-input').val();
-        var categorie = parseInt($('.selected-categorie').val());
-        console.log(categorie);
-        
-        switch(categorie) {
-            case 1: 
-                startWith(number);
-                break;
-            default:
-                console.log('error');
-        }
-    });
-
 
 
 function extractTicketNumber() {
@@ -199,23 +211,6 @@ function clearTicketsList(){
     });
     ticketsList = [];
 }
-
-$('#add-list-btn').click(function(){
-    console.log("called add");
-    getCheckedTickets();
-    console.log(ticketsList);
-    });
-
-$('#clear-list-btn').click(function(){
-    console.log("called clear");
-    clearTicketsList();
-    console.log(ticketsList);
-    });
-
-
-
-
-
 
 
 
