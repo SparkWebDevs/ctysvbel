@@ -60,11 +60,12 @@
     
     function reserveTickets($tickets, $reservedLimit){
 		global $conn;
+		$ticketsList = json_decode($tickets);
 		$queryError = false;
             try{
-		for($x=0 ; $x<$tickets.count(); $x++){ //loop through the tickets list
+		for($x=0 ; $x<$ticketsList.count(); $x++){ //loop through the tickets list
 			$reserveTicketsQuery = "UPDATE Tickets SET IdStatus = ?, ReservedLimit = ? WHERE IdTicket = ?;";
-			$params = array(3,$reservedLimit,$tickets[$x]);
+			$params = array(3,$reservedLimit,$ticketsList[$x]);
 			$dataset = sqlsrv_query($conn, $reserveTicketsQuery, $params);
 			if(sqlsrv_rows_affected($dataset) === FALSE){
 				$queryError = true;
@@ -74,7 +75,7 @@
 		if($queryError){
 			echo "no";
 		}else{
-			echo $tickets.count();
+			echo $ticketsList.count();
 		}
 
                 }catch (Exception $err) {

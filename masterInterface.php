@@ -27,8 +27,7 @@
     }
 	
 	function AJAXReserveTickets($tickets,$reservedLimit){
-		$ticketsList = json_decode($tickets);
-		reserveTickets($ticketsList, $reservedLimit);
+		reserveTickets($tickets, $reservedLimit);
 	}
 
 ?>

@@ -50,11 +50,12 @@ $(document).ready(function(){
 
 function reserveTicketsForPurchase(){//Reservar los tickets para no ser visibles por un periodo de 20 Min
     var reservedLimit = getDateWithOption(2);
+    var ticketsListJSON = JSON.stringify(ticketsList);
     console.log(reservedLimit);
             $.ajax({
                 type: "POST",
                 url: 'masterInterface.php',
-                data: {func: "AJAXReserveTickets", arg1:JSON.stringify(ticketsList), arg2:reservedLimit},
+                data: {func: "AJAXReserveTickets", arg1:ticketsListJSON , arg2:reservedLimit},
                 success: function(data) {
                      if(data === "no"){
                     	console.log("boletos no actualizados");
