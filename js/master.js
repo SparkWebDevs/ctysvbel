@@ -34,6 +34,8 @@ $(document).ready(function(){
     $('#add-list-btn').click(function(){
     console.log("called add");
     getCheckedTickets();
+    reserveTicketsForPurchase();
+    printCartList();
     console.log(ticketsList);
     });
 
@@ -254,6 +256,7 @@ function getTicketsFromDb(){
 // Get array with selected tickets
 //function Ticket (IdTicket,TicketNumber,TicketFirstName,TicketSecondName,TicketLastName,TicketSecondLastName) 
 function getCheckedTickets() {
+    ticketsList = [];
     $('.ticketCheck').each(function(){
         if( $(this).prop('checked')) {
             var ticketDef = new Ticket($(this).attr("id"),$(this).siblings('label').text(),"","","","");
