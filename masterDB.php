@@ -67,7 +67,7 @@
             try{
 		for($x=0 ; $x < count($ticketsList); $x++){ //loop through the tickets list
 			$reserveTicketsQuery = "UPDATE Tickets SET IdStatus = ?, ReservedLimit = ? WHERE IdTicket = ?;";
-			$params = array(3,$reservedLimit,$ticketsList[$x]["IdTicket"]);
+			$params = array(3,$reservedLimit,$ticketsList[$x]->TicketNumber);
 			$dataset = sqlsrv_query($conn, $reserveTicketsQuery, $params);
 			if(sqlsrv_rows_affected($dataset) == FALSE){
 				$queryError = true;
