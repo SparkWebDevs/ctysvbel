@@ -74,7 +74,7 @@
 		if($queryError){
 			echo "no";
 		}else{
-			echo "yes";
+			echo $tickets.count();
 		}
 
                 }catch (Exception $err) {
