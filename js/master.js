@@ -328,6 +328,7 @@ function getDateWithOption(opt){
         switch(opt){
             
             case 1: // CurrentDate
+                    
                     dd = today.getDate();
                     mm = today.getMonth()+1; //January is 0!
                     yyyy = today.getFullYear();
@@ -337,19 +338,21 @@ function getDateWithOption(opt){
                 break;
             
             case 2:// CurrentDate + 20 min
+                    today = new Date(today.getTime() + (20*60000));
                     dd = today.getDate();
                     mm = today.getMonth()+1; //January is 0!
                     yyyy = today.getFullYear();
                     HH = today.getHours() + ":";
-                    MM = today.getMinutes()+20+ ":";
+                    MM = today.getMinutes()+ ":";
                     SS = today.getSeconds();     
                 break;
             
             case 3://CurrentDate + 1hour
+                    today = new Date(today.getTime() + (60*60000));
                     dd = today.getDate();
                     mm = today.getMonth()+1; //January is 0!
                     yyyy = today.getFullYear();
-                    HH = today.getHours() + 1 + ":";
+                    HH = today.getHours() + ":";
                     MM = today.getMinutes()+ ":";
                     SS = today.getSeconds();   
                 break;
