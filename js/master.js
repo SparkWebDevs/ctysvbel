@@ -126,8 +126,7 @@ function startWith(number) {
             selectedNumbers.push(tickets[i]);
     }
     
-    buildTicketsTable(50, selectedNumbers);   
-    console.log(selectedNumbers);
+    buildTicketsTable(200, selectedNumbers);   
 }
     
 function endWith(number) {
@@ -141,8 +140,7 @@ function endWith(number) {
             selectedNumbers.push(tickets[i]);
     }
     
-    buildTicketsTable(50, tickets);    
-    //console.log(selectedNumbers);
+    buildTicketsTable(200, selectedNumbers);    
 }
     
 function sumOfDigit(number) {
