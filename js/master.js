@@ -126,8 +126,8 @@ function startWith(number) {
             selectedNumbers.push(tickets[i]);
     }
     
-    buildTicketsTable(50, tickets);   
-    //console.log(selectedNumbers);
+    buildTicketsTable(50, selectedNumbers);   
+    console.log(selectedNumbers);
 }
     
 function endWith(number) {

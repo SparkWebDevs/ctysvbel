@@ -40,8 +40,6 @@
         <input type="radio" name="section" value="2">Inicia Con<br>
         <input type="radio" name="section" value="3">Termina Con<br>
         <input type="radio" name="section" value="4">Suma de un digito<br>
-        <input type="radio" name="section" value="5">Option 5<br>
-        <input type="radio" name="section" value="6"> Option 6 <br>
         <button class="yellow-btn">Encuentra tu boleto</button>
     </form>
     <form action="">
