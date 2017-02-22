@@ -38,7 +38,8 @@
         
             try{
                 $getAvailableTickets = "SELECT TOP 100 IdTicket, TicketNumber FROM Tickets WHERE IdStatus = ?;";
-                $dataset = sqlsrv_query($conn, $getAvailableTickets);
+                $params = Array(1);
+                $dataset = sqlsrv_query($conn, $getAvailableTickets, $params);
                 
                 if(sqlsrv_has_rows($dataset) === FALSE){
                     echo "no";
