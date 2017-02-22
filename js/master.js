@@ -1,6 +1,6 @@
 var currentTableData;
 var ticketsList = [];
-var dbTickets = [];
+var dbTickets;
 
 //TICKET OBJECT DEF
 function Ticket (IdTicket,TicketNumber,TicketFirstName,TicketSecondName,TicketLastName,TicketSecondLastName) {
@@ -55,16 +55,19 @@ $(document).ready(function(){
         
         switch(categorie) {
             case 1:
-                buildTicketsTable(50, dbTickets);
+                getTicketsFromDb();
             case 2: 
                 startWith(number);
                 break;
             case 3:
                 endWith(number);
+                break;
             case 4:
                 sumOfDigit(number);
+                break;
             default:
                 console.log('error');
+                break;
         }
     });
     
