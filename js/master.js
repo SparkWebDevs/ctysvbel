@@ -1,5 +1,6 @@
 var currentTableData;
 var ticketsList = [];
+var dbTickets = [];
 
 //TICKET OBJECT DEF
 function Ticket (IdTicket,TicketNumber,TicketFirstName,TicketSecondName,TicketLastName,TicketSecondLastName) {
@@ -53,9 +54,15 @@ $(document).ready(function(){
         console.log(categorie);
         
         switch(categorie) {
-            case 1: 
+            case 1:
+                buildTicketsTable(50, dbTickets);
+            case 2: 
                 startWith(number);
                 break;
+            case 3:
+                endWith(number);
+            case 4:
+                sumOfDigit(number);
             default:
                 console.log('error');
         }
@@ -104,76 +111,57 @@ function reserveTicketsForPurchase(){//Reservar los tickets para no ser visibles
             });
 }
 
+
 function startWith(number) {
-        $('#table-content td').each(function() {
-        if( !($(this).text().startsWith(number)) ) {
-                $(this).css('display', 'none');            
-            }
-        });
+    
+    var selectedNumbers = [];
+    
+    var tickets = dbTickets;
+    
+    for(i = 0; i < tickets.length; i++)  {
+        if(tickets[i].TicketNumber.startsWith(number))
+            selectedNumbers.push(tickets[i]);
     }
     
-    function hasDigits(number) {
-        var testNumbers = ['23012', '40013', '50146', '12855'];
-        var selectedNumbers = [];
-        // Access total of tickets
-        for(var b = 0; b < testNumbers.length; b++) {
-            // Access each digit of ticket
-            for(var i = 0; i < testNumbers[b].length; i++) {
-                // Access each digit of number and compare it with digit in ticket
-                for(var j = 0; j < number.length; j++) {
-                    // Check if number digit exists in ticket and if is not in selectedNumbers array already
-                    if(testNumbers[b][i] == number[j] && $.inArray(testNumbers[b], selectedNumbers) === -1) {
-                        selectedNumbers.push(testNumbers[b]);
-                    }
-                }
-            }
-        }
-        return selectedNumbers;
+    buildTicketsTable(50, tickets);   
+    //console.log(selectedNumbers);
+}
+    
+function endWith(number) {
+        
+    var selectedNumbers = [];
+    
+    var tickets = dbTickets;
+    
+    for(i = 0; i < tickets.length; i++)  {
+        if(tickets[i].TicketNumber.endsWith(number))
+            selectedNumbers.push(tickets[i]);
     }
     
-    function endWith(number) {
-        $('#table-content td').each(function() {
-        if( !($(this).text().endsWith(number)) ) {
-                $(this).css('display', 'none');            
-            }
-        });
+    buildTicketsTable(50, tickets);    
+    //console.log(selectedNumbers);
+}
+    
+function sumOfDigit(number) {
+    var sum = 0;
+    var tickets = dbTickets;
+    
+    for(var i = 0; i <= number; i++) {
+        sum += i;
     }
+    startWith(sum); 
     
-    function sumOfDigit(number) {
-        var sum = 0;
-        for(var i = 0; i <= number; i++) {
-            sum += i;
-        }
-        return sum;
-    }
+}
+   
+function ascendingOrder() {
     
-
-
-function extractTicketNumber() {
+    var tickets = dbTickets;
+    tickets.sort(function (a, b) {
+        return a.TicketNumber - b.TicketNumber;
+    });
     
-    var tickets = '[{"IdTicket":1,"TicketNumber":"12345678"},{"IdTicket":2,"TicketNumber":"87654321"},{"IdTicket":3,"TicketNumber":"43215678"},{"IdTicket":4,"TicketNumber":"34094142"},{"IdTicket":5,"TicketNumber":"76328901"},{"IdTicket":6,"TicketNumber":"66508213"},{"IdTicket":7,"TicketNumber":"02123435"},{"IdTicket":8,"TicketNumber":"55554314"},{"IdTicket":9,"TicketNumber":"88864210"},{"IdTicket":10,"TicketNumber":"33332134"},{"IdTicket":11,"TicketNumber":"27346823"},{"IdTicket":12,"TicketNumber":"17235716"},{"IdTicket":13,"TicketNumber":"67463893"},{"IdTicket":14,"TicketNumber":"67890354"},{"IdTicket":15,"TicketNumber":"45273890"},{"IdTicket":16,"TicketNumber":"63098722"},{"IdTicket":17,"TicketNumber":"34527651"},{"IdTicket":18,"TicketNumber":"90908765"},{"IdTicket":19,"TicketNumber":"45378276"},{"IdTicket":20,"TicketNumber":"52875987"},{"IdTicket":21,"TicketNumber":"76298376"},{"IdTicket":22,"TicketNumber":"78235625"},{"IdTicket":23,"TicketNumber":"76389281"},{"IdTicket":24,"TicketNumber":"19872453"},{"IdTicket":25,"TicketNumber":"87356244"},{"IdTicket":26,"TicketNumber":"56384789"}]';
-
-    //tickets = JSON.parse(tickets)
-    var ticketsLength = tickets.length;
-    
-    
-    // Bubble sort algorith
-    for (var i = (ticketsLength - 1); i >= 0; i--) {
-        //Number of passes
-        for (var j = (ticketsLength - i); j > 0; j--) {
-            //Compare the adjacent positions
-            if (tickets[j].TicketNumber < tickets[j - 1].TicketNumber) {
-                //Swap the numbers
-                var tmp = tickets[j];
-                tickets[j] = tickets[j - 1];
-                tickets[j - 1] = tmp;
-            }
-        }
-    }
-    
-    return console.log(tickets);
-   // return reorderedTickets;
-    //return ticketsNumbers;
+    buildTicketsTable(50, tickets);   
+        
 }
 
 function addTableFeatures() {
@@ -244,7 +232,7 @@ function getTicketsFromDb(){
                      if(data === "no"){
                     	sweetAlert("Oops...", "Imposible conectarse con BD", "error");
                      } else {
-                        var dbTickets = JSON.parse(data);
+                        dbTickets = JSON.parse(data);
                         console.log(dbTickets);
                         buildTicketsTable(100 , dbTickets);
                     }

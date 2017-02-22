@@ -36,10 +36,10 @@
 <aside class="left-bar">
     <h3>Encuentra tu boleto de la suerte</h3>
     <form action="">
-        <input type="radio" name="section" value="1" checked> Option 1<br>
-        <input type="radio" name="section" value="2">Option 2<br>
-        <input type="radio" name="section" value="3"> Option 3 <br>
-        <input type="radio" name="section" value="4"> Option 4<br>
+        <input type="radio" name="section" value="1" checked>Aleatorio<br>
+        <input type="radio" name="section" value="2">Inicia Con<br>
+        <input type="radio" name="section" value="3">Termina Con<br>
+        <input type="radio" name="section" value="4">Suma de un digito<br>
         <input type="radio" name="section" value="5">Option 5<br>
         <input type="radio" name="section" value="6"> Option 6 <br>
         <button class="yellow-btn">Encuentra tu boleto</button>
